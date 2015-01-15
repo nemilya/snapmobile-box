@@ -41,7 +41,7 @@ Copy `build_android.sh` to `snapmobile-web`.
 
 ```bash
 $ cd /vagrant/snapmobile-web
-$ build_android.sh demo.xml
+$ ./build_android.sh snap_mobile_demo.xml
 ```
 
 Copy *.apk `snapmobile-web` to Android.
