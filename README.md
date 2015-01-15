@@ -44,7 +44,7 @@ $ cd /vagrant/snapmobile-web
 $ ./build_android.sh snap_mobile_demo.xml
 ```
 
-Copy *.apk `snapmobile-web` to Android.
+Copy `Snap-debug.apk` from `snapmobile-web` to Android.
 
 ### Landscape
 
