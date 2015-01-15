@@ -1,13 +1,13 @@
 Snapmobile Box
 ==============
 
-Android for Snap project http://snap.berkeley.edu
+Android for Snap! project http://snap.berkeley.edu
 
 Thanks to https://github.com/Gubolin
 
 More info: https://github.com/jmoenig/Snap--Build-Your-Own-Blocks/pull/575
 
-Vagrant confirutaion for Android based on `ionic-box`.
+Vagrant configuration for Android based on https://github.com/driftyco/ionic-box
 
 ### Installation
 
