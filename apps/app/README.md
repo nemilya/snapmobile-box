@@ -2,17 +2,23 @@ Simple web application for provide access to `snap_project.xml`.
 
 Place your xml (f.e. `snap_project.xml`) to `projects`.
 
-Then access to http://IP:PORT/get_xml/snap_project.xml
-(test in browser)
+Start by `ruby app.rb -p PORT -o IP-ADDRESS`
 
-And user this URL to `build_android.sh`
+Or at guest machine simple `ruby app.rb`
+
+Todo: uncomment port forwarding in `Vagrantfile` config.
+
+Then access to http://IP:PORT/get_xml/snap_project.xml
+(test in browser). F.e. from host machine: `http://localhost:8080/get_xml/snap_project.xml`
+
+And user this URL (specify real IP) to `build_android.sh`
 
 For example:
 
     ./build_android.sh http://IP:PORT/get_xml/snap_project.xml
 
 Install APK to Android, when application is started it access to URL,
-upload `xml` project, and load it.
+and download `xml` project, and load it.
 
-I.e. after changing `projects/snap_project.xml`, and restart Android application
-will be loaded new version.
+I.e. after changing `projects/snap_project.xml` file, and restart Android application -
+new version will be loaded.
