@@ -33,7 +33,7 @@ expect {
 # `zipalign` is missing in "tools" folder in sdk_r23.0.2, copy it
 cp android-sdk-linux/build-tools/19.1.0/zipalign android-sdk-linux/tools/
 
-/vagrant/snapmobile_init.sh
+/vagrant/vm_bootstrap/snapmobile_init.sh
 # sudo /home/vagrant/android-sdk-linux/platform-tools/adb kill-server
 # sudo /home/vagrant/android-sdk-linux/platform-tools/adb start-server
 # sudo /home/vagrant/android-sdk-linux/platform-tools/adb devices

@@ -3,6 +3,7 @@
 echo "Build Android mobile"
 
 # USAGE: ./build_android.sh snap_file.xml
+#    or  ./build_android.sh http://URL/snap_file.xml
 
 # was called 'snapmobile_init.sh' for init:
 # ready to user git source of snap-mobile (checkout mobileapp)
@@ -11,8 +12,17 @@ export cordovaplugins="/home/vagrant/source-origin/cordova/plugins"
 
 scriptdir=$(readlink -e ".")
 
-# project content
-content=$(cat $1)
+# project content or URL to file project
+filecontent=true
+
+if [ -f "$1" ]
+then
+    filecontent=true
+    content=$(cat $1)
+else
+    filecontent=false
+    url=$1
+fi
 
 buildsource=$(mktemp -d)
 cp -R $originalsource $buildsource
@@ -31,16 +41,24 @@ sed -i '/paint\.js"/d' snap.html
 sed -i '/cloud\.js"/d' snap.html
 sed -i 's/gui\.js"/binary\.js"/' snap.html
 
-# load custom project from file
-sed -i '/sha512\.js"/a\
-        <script type="text/javascript" src="code.js"></script> ' snap.html
+# if file content
+if [ $filecontent == true ]
+then 
+  # load custom project from file
+  sed -i '/sha512\.js"/a\
+          <script type="text/javascript" src="code.js"></script> ' snap.html
 
-echo "var code =" > code.js
-echo "'$content'" >> code.js
-echo ";" >> code.js
+  echo "var code =" > code.js
+  echo "'$content'" >> code.js
+  echo ";" >> code.js
 
-sed -i "/ide\.openIn/a\
-    ide.droppedText(code); " snap.html
+  sed -i "/ide\.openIn/a\
+      ide.droppedText(code); " snap.html
+else
+  # url
+  sed -i "/ide\.openIn/a\
+      ide.droppedText(ide.getURL('$url')); " snap.html
+fi
 
 find . -name '*.js' | xargs -I {} uglifyjs {} -o {} -c
 

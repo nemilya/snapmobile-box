@@ -61,3 +61,17 @@ Edit `config.xml` at `~/source-origin/snapmobile` add:
     <preference name="Orientation" value="landscape" />
 
 
+### Access Snap project from internet
+
+This give possibility to update APK's Snap-project without build/reinstall apk.
+
+Build APK like follow:
+
+```bash
+$ ./build_android.sh URL_TO_XML
+```
+
+Where URL_TO_XML - is URL to your Snap project.xml file.
+
+In folder `apps` - ther is simple application to distribute *.xml snap files for Android application. 
+See README.md there for details.
