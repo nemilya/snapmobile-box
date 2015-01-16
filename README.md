@@ -49,7 +49,7 @@ $ cd /vagrant/snapmobile-web
 $ ./build_android.sh snap_project.xml
 ```
 
-Copy `Snap-debug.apk` from `snapmobile-box` to Android.
+Copy `CordovaApp-debug.apk` from `snapmobile-box` to Android.
 
 ### Landscape
 
