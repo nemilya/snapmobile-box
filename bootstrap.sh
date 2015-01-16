@@ -12,9 +12,6 @@ curl -O $ANDROID_SDK
 tar -xzvf $ANDROID_SDK_FILENAME
 sudo chown -R vagrant android-sdk-linux/
 
-# `zipalign` is missing in "tools" folder in sdk_r23.0.2, copy
-cp android-sdk-linux/build-tools/19.1.0/zipalign android-sdk-linux/tools/
-
 echo "ANDROID_HOME=~/android-sdk-linux" >> /home/vagrant/.bashrc
 echo "PATH=\$PATH:~/android-sdk-linux/tools:~/android-sdk-linux/platform-tools" >> /home/vagrant/.bashrc
 
@@ -32,6 +29,9 @@ expect {
     eof
 }
 '
+
+# `zipalign` is missing in "tools" folder in sdk_r23.0.2, copy it
+cp android-sdk-linux/build-tools/19.1.0/zipalign android-sdk-linux/tools/
 
 /vagrant/snapmobile_init.sh
 # sudo /home/vagrant/android-sdk-linux/platform-tools/adb kill-server
