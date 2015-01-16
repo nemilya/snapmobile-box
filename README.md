@@ -34,7 +34,7 @@ After installed
 Test build, at guest machine:
 
 ```bash
-$ cd /vagrant/snapmobile-web
+$ cd /vagrant/
 $ ./build_android.sh snap_mobile_demo.xml
 ```
 
