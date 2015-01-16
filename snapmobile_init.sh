@@ -1,6 +1,6 @@
 # called from guest machine
 
-cd ~/
+cd /home/vagrant/
 mkdir source-origin
 cd source-origin
 
@@ -10,17 +10,22 @@ cd snapmobile-web
 git submodule init
 git submodule update
 # copy to shared folder
-cp -R ~/source-origin/snapmobile-web /vagrant/
+
+
+sudo chown -R vagrant:vagrant /home/vagrant/source-origin/snapmobile-web
+
+cp -R /home/vagrant/source-origin/snapmobile-web /vagrant/
 
 # Snap for mobile apps creation
-cd ~/source-origin
+cd /home/vagrant/source-origin
 git clone https://github.com/Gubolin/snap.git snapmobile
 cd snapmobile
 git checkout mobileapp
 
-# init cordova
-cd ~/source-origin
+sudo chown -R vagrant:vagrant /home/vagrant/source-origin/snapmobile
 
+# init cordova
+cd /home/vagrant/source-origin
 
 cordova create cordova edu.berkeley.snap "Snap\!"
 
@@ -33,3 +38,6 @@ cordova plugin add org.apache.cordova.device-motion
 cordova plugin add org.apache.cordova.device-orientation
 cordova plugin add org.apache.cordova.geolocation
 cordova plugin add de.appplant.cordova.plugin.local-notification
+
+sudo chown -R vagrant:vagrant /home/vagrant/source-origin/cordova
+sudo chown vagrant:vagrant /home/vagrant/source-origin

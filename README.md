@@ -31,20 +31,25 @@ This will download and install the image, and then go through the dependencies a
 
 After installed
 
-
-Copy `build_android.sh` to `snapmobile-web`.
-
-1. Start Snap! - folder `snapmobile-web` - in shared folder, from host-machine start `snap.html`
-2. Create Snap! project, save as Shift+FileOpen - `Save to disk` (for example try `snap_mobile_demo.xml`)
-3. Copy `snap_mobile_demo.xml` to `snapmobile-web` folder
-4. At guest machine:
+Test build, at guest machine:
 
 ```bash
 $ cd /vagrant/snapmobile-web
 $ ./build_android.sh snap_mobile_demo.xml
 ```
 
-Copy `Snap-debug.apk` from `snapmobile-web` to Android.
+
+1. Start Snap! - folder `snapmobile-web` - in shared folder, from host-machine start `snap.html`
+2. Create Snap! project, save as Shift+FileOpen - `Save to disk` (for example `snap_project.xml`)
+3. Copy `snap_project.xml` to `snapmobile-box` folder
+4. At guest machine:
+
+```bash
+$ cd /vagrant/snapmobile-web
+$ ./build_android.sh snap_project.xml
+```
+
+Copy `Snap-debug.apk` from `snapmobile-box` to Android.
 
 ### Landscape
 
