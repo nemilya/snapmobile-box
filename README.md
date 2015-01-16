@@ -38,6 +38,9 @@ $ cd /vagrant/
 $ ./build_android.sh snap_mobile_demo.xml
 ```
 
+Copy CordovaApp-debug.apk from snapmobile-box to Android.
+
+Common workflow:
 
 1. Start Snap! - folder `snapmobile-web` - in shared folder, from host-machine start `snap.html`
 2. Create Snap! project, save as Shift+FileOpen - `Save to disk` (for example `snap_project.xml`)
